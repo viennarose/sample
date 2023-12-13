@@ -30,8 +30,8 @@ Route::get('/home', function () {
 Route::get('/user', [UserController::class,'user'])->name('user');
 Route::get('/user/create', [UserController::class,'create']);
 Route::post('/user/create', [UserController::class, 'store']);
-Route::get('/user/{user}', [UserController::class, 'edit']);
-Route::patch('/user/{user}', [UserController::class, 'update']);
+Route::get('/user/edit/{id}', [UserController::class, 'edit']);
+Route::patch('/user/{id}', [UserController::class, 'update']);
 Route::delete('/user/{id}', [UserController::class, 'delete']);
 
 Route::get('/about', [TrainorController::class,'trainor'])->name('trainor');

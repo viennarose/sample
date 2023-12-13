@@ -27,7 +27,7 @@
             <td>{{ $user->email }}</td>
             <td>{{ $user->full_name }}</td>
             <td>
-                <button>edit</button>
+                <button><a href="{{ url('/user/edit/' . $user->id) }}">Edit</a></button>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserModal{{ $user->id }}">
                     Delete
                 </button>

@@ -25,12 +25,13 @@ class UserController extends Controller
         return view('user.create');
     }
 
-    public function edit(User $user)
+    public function edit($id)
     {
-        return view('users.edit', compact('user'));
+        $user = User::findOrFail($id);
+        return view('user.edit', compact('user'));
     }
 
-    public function update(User $user, Request $request)
+    public function update($id, Request $request)
     {
         $request->validate([
             'username' => 'required',
@@ -38,8 +39,9 @@ class UserController extends Controller
             'email' => 'required|email'
         ]);
 
+        $user = User::findOrFail($id);
         $user->update($request->all());
-        return redirect('/user')->with('message', "$user->full_name A new user has been updated");
+        return redirect('/user')->with('message', "A new user has been updated");
     }
 
 
